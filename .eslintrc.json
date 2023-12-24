@@ -1,3 +1,22 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended", // eslint-plugin-react
+    "plugin:react/recommended", // eslint-plugin-react
+    "plugin:react-hooks/recommended", // eslint-plugin-react-hooks
+    "plugin:@next/eslint-plugin-next/recommended", // @next/eslint-plugin-next
+    "prettier" //eslint-config-prettier
+  ],
+  "plugins": [
+    "react", // eslint-plugin-react
+    "react-hooks" // eslint-plugin-react-hooks
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true // eslint-plugin-react
+    }
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  }
 }
