@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { ThemeProvider } from '@/components/theme-provider'
 import ThemeToggle from '@/components/theme-toggle'
 
-import './globals.css'
+import '@/styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,10 +23,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${inter.className}  antialiased min-h-screen bg-white dark:bg-gray-900 text-slate-900 dark:text-slate-50`}
+        className={`${inter.className} antialiased min-h-screen bg-white dark:bg-gray-900 text-slate-900 dark:text-slate-50`}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <div className='max-w-6xl mx-auto py-10 px-4'>
+          <div className='max-w-7xl mx-auto py-10 px-4'>
             <header>
               <div className='flex items-center justify-between'>
                 <nav className='mr-auto text-sm font-medium space-x-6'>
