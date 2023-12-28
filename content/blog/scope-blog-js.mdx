@@ -1,0 +1,119 @@
+---
+title: Scope dan Block pada JavaScript
+description: How to implement preview mode in your headless CMS.
+date: 2020-09-06
+image: /images/blog/js.jpg
+authors:
+  - hariadiarief
+---
+
+_Scope_, sesuai namanya yang berarti cakupan/jangkauan, dalam konteks eksekusi aplikasi javascript Scope memiliki artian dimana [value ](https://developer.mozilla.org/en-US/docs/Glossary/Value)dan [expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators) dapat dicakupan/dijangkau untuk diakses.
+
+_Scope_ juga dapat berlapis/_nested_, seperti :
+
+```js
+function induk() {
+  console.log('induk')
+  function anak() {
+    console.log('anak')
+  }
+}
+```
+
+sehingga _scope_ `anak() {...}` memiliki jangkauan akses ke `induk(){...}`, namun tidak sebaliknya.
+
+## **Jenis Scope pada JavaScript :**
+
+- **Global scope**: Scope default untuk semua kode yang berjalan dalam mode skrip.
+
+- **Module scope**: Scope untuk kode yang berjalan dalam mode modul.
+
+- **Function scope**: Scope yang dibuat dengan function().
+
+Dalam perkembangannya, saat tipe data let dan const diperkenalkan dalam es6 JavaScript memiliki scope tambahan untuk kedua tipe data tersebut, yaitu :
+
+- **Block scope**: Scope yang dibuat dengan sepasang kurung kurawal
+
+```
+{}
+```
+
+## Global Scope
+
+Variabel yang dideklarasikan secara Global (di luar fungsi apa pun) adalah **Global Scope. **Global variables dapat diakses dari manapun di dalam program JavaScript. Berikut Contoh kodenya :
+
+```js
+var kota = 'Jakarta'
+console.log(kota) // kota DAPAT diakses/dijangkau disini
+;(function myFunction() {
+  console.log(kota) // kota DAPAT diakses/dijangkau disini
+})()
+```
+
+## Function Scope
+
+Variable yang dideklarasikan secara Local (didalan sebuah fungsi)adalah **Funtion Scope.** Lokal Variabel hanya bisa diakses dari dalam fungsi itu sendiri
+
+```ts
+console.log(kota) // kota TIDAK DAPAT diakses/dijangkau disini
+;(function myFunction() {
+  var kota = 'Jakarta'
+  console.log(kota) // kota DAPAT diakses/dijangkau disini
+})()
+
+console.log(kota) // kota TIDAK DAPAT diakses/dijangkau disini
+```
+
+## Block Scope
+
+Variable yang dideklarasikan dengan var tidak memiliki **Block Scope.** Oleh karena itu variable yang dideklarasikan didalam block {} dapat dipanggil atau diakses dari luar block.
+
+Hingga pada saat ES2015 dirisil, barulah javascrip mengimplementasikan **Block Scope** kedalam let, oleh karena itu variabel yang dideklarasikan didalam block {} tidak dapat di panggil atau diakses dari luar blok
+
+```js
+console.log(kota) // kota TIDAK DAPAT diakses/dijangkau disini
+
+if (true) {
+  let kota = 'Jakarta'
+  console.log(kota) // kota DAPAT diakses/dijangkau disini
+}
+
+console.log(kota) // kota TIDAK DAPAT diakses/dijangkau disini
+```
+
+> 💡 **TIPS:**
+
+Mendeklarasikan ulang variabel menggunakan var pada non-strict mode dapat menimbulkan masalah. Seperti berikut :
+
+```js
+var x = 10
+console.log(x) // output: 10
+
+if (true) {
+  // mendeklarasikan variable x dalam block dapat mengubah nilai dari variabel x diluar block
+  var x = 2
+  console.log(x) // output: 2
+}
+
+console.log(x) // output: 2
+```
+
+Mendeklarasikan variable menggunakan var di dalam block block dapat mengubah nilai dari variabel x diluar block apabila nama variablenya yang sama.
+
+**Solusi:**
+
+Karena let memiliki block scope sehingga mendeklarasikan variable x di dalam block tidak akan mengubah nilai dari variabel x diluar.
+
+```ts
+let x = 10
+console.log(x) // output: 10
+
+if (true) {
+  let x = 2
+  console.log(x) // output: 2
+}
+
+console.log(x) // output: 10
+```
+
+> Sekian, Terimakasi 😊

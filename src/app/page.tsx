@@ -37,9 +37,9 @@ export default function Home() {
                 className='bg-white dark:bg-gray-900 dark:border-gray-700'
               >
                 <img
-                  className='border border-gray-200 rounded-lg shadow'
+                  className='border border-gray-200 rounded-lg shadow w-full dark:border-gray-700'
                   src={post.image}
-                  alt=''
+                  alt='post.image'
                 />
 
                 <article className='pt-2'>

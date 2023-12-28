@@ -1,0 +1,96 @@
+---
+title: Cara Mudah Membangun Responsive Web Design dengan Mixin Sass
+description: Salah satu fitur yang akan dibahas dalam artikel ini adalah penggunaan mixin untuk untuk styling Responsive Web Design (RWD).
+date: 2020-09-13
+image: /images/blog/rwd.jpg
+authors:
+  - hariadiarief
+---
+
+> Sass atau scss adalah css preprocessor, diamana fitur-fitur yang disediakan dapat mempermudah pemngembang dalam menata sebuah aplikasi web. Salah satu fitur yang akan dibahas dalam artikel ini adalah penggunaan mixin untuk untuk styling Responsive Web Design (RWD).
+
+Dalam membengun sebuah aplikasi web tentu kita harus memperhatikan tampilan yang responsif atau yang lebih dikenal dengan r*esponsive web design* (RWD), karena gawai yang digunakan oleh penggunjung website kita tidaklah sama semuanya, dan masing-masing gawai tersebut memiliki ukuran layar yang berbeda-beda. Oleh karena itu RWD merupakan aspek yang sangat penting dalam membangun sebuah website, guna memastikan masing-masing komponen yang dapat ditampilkan dengan baik dan benar diukuran layar yang berbeda-beda.
+
+![image-source : [https://unsplash.com/](https://unsplash.com/)](https://cdn-images-1.medium.com/max/2000/0*s2azEiU_oK6hpx6c)
+
+Pada dasarnya CSS 3 telah memperkenalkan _Media Queries_ yang dapat mengakomodir pengembangan RWD, informasi lebih lanjut terkait media query dapat dibaca di [w3schools](https://www.w3schools.com/css/css_rwd_mediaqueries.asp). Masalahnya file css kita akan menjadi sangat komplek apabila kita menerapkan RWD pada css, dan tentunya akan menyulikan proses pemeliharan pula. Oleh karena itu css preprocessor mulai berlomba-lomba untuk menyederhanakan penulisan css agar suatu tampilan suatu website dapat lebih mudah dikembangkan dan dipelihara. Salah satu css preporcessor yang akan kita bahas disini adaalah Sass dengan fitur mixin-nya.
+
+mixin bertujuan untuk memungkinkan pengembang menggunakan ulang style-nya sehingga membantu pengembang dalam menulis code secara efisien, anda dapat membaca dokumentasi mixin lebih lanjut dalam [dokumentasinya.](https://sass-lang.com/documentation/at-rules/mixin) Berikut adalah contoh mendifinisikan dan menggunakan mixin dalam Sass dengan mengacu kepada [standart breakpoints milik Bootstrap v5.0](https://getbootstrap.com/docs/5.0/layout/breakpoints/)
+
+### Cara Pertama
+
+```scss
+//mendefinisikan mixin
+@mixin sm {
+  @media only screen and (min-width: 576px) {
+    @content;
+  }
+}
+@mixin md {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+@mixin lg {
+  @media only screen and (min-width: 992px) {
+    @content;
+  }
+}
+
+//memanggil atau menggunaan mixin
+.content {
+  font-size: 10px; // untuk sm (phone)
+
+  @include md {
+    font-size: 12px; // untuk md (tablet, laptop)
+  }
+
+  @include lg {
+    font-size: 14px; // untuk md (laptop degan resolusi tinggi)
+  }
+}
+```
+
+### Cara Kedua
+
+```scss
+//mendefinisikan mixin
+@mixin for-size($size) {
+  @if $size==sm {
+    @media (min-width: 576px) {
+      @content;
+    }
+  } @else if $size==md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $size==lg {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if $size==xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+//memanggil atau menggunaan mixin
+.content {
+  font-size: 10px; // untuk sm (phone)
+
+  @include for-size(md) {
+    font-size: 12px; // untuk md (tablet, laptop)
+  }
+
+  @include for-size(lg) {
+    font-size: 14px; // untuk md (laptop degan resolusi tinggi)
+  }
+}
+```
+
+Pada kedua contoh diatas saya hanya menggunakan tiga breakpoints yaitu sm ,md dan lg . Anda dapat menambahkan lagi mengikuti [standart breakpoints milik Bootstrap v5.0](https://getbootstrap.com/docs/5.0/layout/breakpoints/) atau menambahkan sesuai kebutuhan Anda.
+
+## Kesimpulan
+
+Pada dasarnya banyak sekali alat dan pendekatan yang dapat mempermudah seorang pengembang agar dapat mengembangkan programnya secara efisien. Maka kembangkanlah aplikasimu secara efisien, agar dalam memperingkas waktu pengembangan serta perawatan aplikasi.

@@ -1,0 +1,110 @@
+---
+title: Cara Mudah Mengelola dan Mengelompokkan File .env
+description: env-cmd memungkinkan Anda mengelopokkan environment variables kedalam satu file saja. Anda juga dapat dengan mudah memilih environment mana yang Akan anda gunakan untuk dijalankan di local-machine Anda
+date: 2023-03-09
+image: /images/blog/env.jpg
+authors:
+  - hariadiarief
+---
+
+Alih-alih membuat file .env untuk setiap environment, env-cmd memungkinkan Anda mengelopokkan environment variables kedalam satu file saja. Anda juga dapat dengan mudah memilih environment mana yang Akan anda gunakan untuk dijalankan di local-machine Anda — contoh: menjalankan aplikasi di local-machine menggunakan environment production. Dalam artikel ini saya akan menggunakan studi kasus dengan menggunakan ReactJs yang diinstal menggunakan create-react-app.
+
+## Installasi Aplikasi
+
+install aplikasi ReactJs dengan [create-react-app](https://create-react-app.dev/docs/getting-started)
+
+```bash
+npx create-react-app env-cmd-example-on-react
+```
+
+install package [env-cmd](https://www.npmjs.com/package/env-cmd)
+
+```bash
+npm install env-cmd
+```
+
+## Configurasi env-cmd
+
+update srcipt yang ada di package.json
+
+```bash
+"scripts": {
+...
+    "start": "env-cmd --file .env.production.local react-scripts start",
+...
+},
+```
+
+Script diatas bertujuan menjalankan aplikasi di local-machine Anda dengan menggunakan environment production yang Anda simpan di dalam file .env.production.local .
+
+> 💡 **TIPS:**
+
+- Anda dapat menambahkan command fallback seperti script dibawah dengan tujuan mengarahkan aplikasi Anda untuk membaca file .env apabila file .env.production.local tidak ditemukan.
+
+```bash
+"scripts": {
+...
+"start": "env-cmd --file .env.production.local --fallback react-scripts start",
+...
+},
+```
+
+- Apabila anda ingin secara khusus membuat script untuk menjalankan aplikasi Anda di local-machine dengan menggunakan environment production. Anda dapat menggunakan script sebagai berikut :
+
+```bash
+"scripts": {
+...
+"dev:prod": "env-cmd --file .env.production.local --fallback react-scripts start"
+...
+},
+```
+
+untuk menjalankan aplikasinya anda dapat menggunakan:
+
+```bash
+npm run dev:prod
+```
+
+## Menggelompokan Environment Variabel Dalam Satu File
+
+Buatlah file ./env-cmdrc di root directory. isikan file tersebut dengan scrip dibawah ini
+
+```bash
+{
+  "development": {
+    "REACT_APP_NODE_ENV": "development",
+    "REACT_APP_BASE_URL": "http://localhost:3000/"
+  },
+
+  "staging": {
+    "REACT_APP_NODE_ENV": "staging",
+    "REACT_APP_BASE_URL": "https://your-app-with-env-cmd.staging.com/"
+  },
+  "production": {
+    "REACT_APP_NODE_ENV": "production",
+    "REACT_APP_BASE_URL": "https://your-app-with-env-cmd.com/"
+  }
+}
+```
+
+update srcipt yang ada di package.json
+
+```bash
+"scripts": {
+...
+  "start": "env-cmd --environments production --fallback react-scripts start",
+...
+},
+```
+
+configurasi diatas akan membuat local-machine Anda menjalankan aplikasi Anda di local-machine dengan menggunakan environment production. Anda juga dapat menggantinya dengan menggunakan environment staging menjadi seperti ini :
+
+```bash
+"scripts": {
+...
+"start": "env-cmd --environments staging --fallback react-scripts start",
+...
+},
+```
+
+> Sekian, Terimakasi 😊
