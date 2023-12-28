@@ -23,7 +23,10 @@ import {
   Twitter,
   User,
   X,
-  type IconNode as LucideIcon
+  Linkedin,
+  type IconNode as LucideIcon,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react'
 
 export type Icon = LucideIcon
@@ -34,6 +37,8 @@ export const Icons = {
   spinner: Loader2,
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
+  chevronDown: ChevronDown,
+  chevronUp: ChevronUp,
   trash: Trash,
   post: FileText,
   page: File,
@@ -50,6 +55,7 @@ export const Icons = {
   sun: SunMedium,
   moon: Moon,
   laptop: Laptop,
+  linkedin: Linkedin,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden='true'
