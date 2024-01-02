@@ -1,0 +1,55 @@
+---
+title: Absolute Imports In Vite React Typescript
+description: Solve your "smelly" import with Absolute Imports
+date: 2023-03-09
+image: /images/blog/react-vite-ts.png
+authors:
+  - hariadiarief
+---
+
+### Problem
+
+Relative imports are the default way to reference source files in JavaScript projects. such as `import Button from
+"../../../components/Button";`
+But when we are developing React applications,
+importing files will be terrible when the applications are bigger because of the level of complexity and file structure,
+Even more if in the future, we do refactoring or restructure files and directories we must update every import command.
+
+## Solution
+
+update yout code as example below:
+
+```js
+// vite.config.ts
+
+export default defineConfig({
+  resolve: {
+    alias: {
+      '@': '/src' // Set the alias to the root of your "src" directory
+    }
+  }
+  // ... other configuration
+})
+```
+
+```js
+// tsconfig.json
+
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+  // ... other configuration
+}
+```
+
+### Usage
+
+```js
+import Layout from '@/Components/Layout.tsx'
+```
+
+Thanks you 😊
