@@ -15,7 +15,7 @@ export default function Blog() {
     })
 
   return (
-    <div className='flex justify-center mt-16'>
+    <div className='mt-16 flex justify-center'>
       <div className='container max-w-4xl'>
         <div className='flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8'>
           <div className='flex-1 space-y-4'>
@@ -29,15 +29,15 @@ export default function Blog() {
         </div>
         <hr className='my-8' />
         {posts?.length ? (
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12'>
+          <div className='mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3'>
             {posts.map(post => (
               <Link
                 key={post._id}
                 href={post.slug}
-                className='bg-white dark:bg-gray-900 dark:border-gray-700'
+                className='bg-white dark:border-gray-700 dark:bg-gray-900'
               >
                 <img
-                  className='border border-gray-200 rounded-lg shadow w-full dark:border-gray-700'
+                  className='w-full rounded-lg border border-gray-200 shadow dark:border-gray-700'
                   src={post.image}
                   alt='post.image'
                 />

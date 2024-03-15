@@ -7,7 +7,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      className='border rounded-md w-6 h-6 flex items-center justify-center'
+      className='flex h-6 w-6 items-center justify-center rounded-md border'
     >
       <span className='sr-only'>Toggle mode</span>
       {theme !== 'dark' ? (
@@ -17,7 +17,7 @@ const ThemeToggle = () => {
           viewBox='0 0 24 24'
           strokeWidth={1.5}
           stroke='currentColor'
-          className='w-4 h-4'
+          className='h-4 w-4'
         >
           <path
             strokeLinecap='round'
@@ -32,7 +32,7 @@ const ThemeToggle = () => {
           viewBox='0 0 24 24'
           strokeWidth={1.5}
           stroke='currentColor'
-          className='w-4 h-4'
+          className='h-4 w-4'
         >
           <path
             strokeLinecap='round'

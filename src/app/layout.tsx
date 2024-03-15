@@ -136,10 +136,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${inter.className} antialiased min-h-screen bg-white dark:bg-gray-900 text-slate-900 dark:text-slate-50`}
+        className={`${inter.className} min-h-screen bg-white text-slate-900 antialiased dark:bg-gray-900 dark:text-slate-50`}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <div className='max-w-7xl mx-auto py-10 px-4'>
+          <div className='mx-auto max-w-7xl px-4 py-10'>
             <header>
               <div className='flex items-center justify-between'>
                 <div className='flex flex-1 justify-start md:justify-center'>
@@ -151,12 +151,12 @@ export default function RootLayout({
               </div>
             </header>
             <main>{children}</main>
-            <footer className='pt-20 contain flex flex-wrap items-center justify-center gap-4 sm:justify-between'>
+            <footer className='contain flex flex-wrap items-center justify-center gap-4 pt-20 sm:justify-between'>
               <div>Hak Cipta 2023 © hariadiarief.com</div>
               <div className='flex'>
                 <a
                   href='https://twitter.com/hariadiarief'
-                  rel="nofollow noreferrer"
+                  rel='nofollow noreferrer'
                   target='_blank'
                 >
                   <Icons.twitter className='mr-2 h-5 w-5' />
@@ -164,14 +164,14 @@ export default function RootLayout({
 
                 <a
                   href='https://github.com/hariadiarief'
-                  rel="nofollow noreferrer"
+                  rel='nofollow noreferrer'
                   target='_blank'
                 >
                   <Icons.gitHub className='mr-2 h-5 w-5' />
                 </a>
                 <a
                   href='https://www.linkedin.com/in/hariadiarief/'
-                  rel="nofollow noreferrer"
+                  rel='nofollow noreferrer'
                   target='_blank'
                 >
                   <Icons.linkedin className='mr-2 h-5 w-5' />
