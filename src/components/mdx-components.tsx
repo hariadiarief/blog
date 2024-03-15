@@ -1,10 +1,10 @@
-import * as React from 'react'
-import Image from 'next/image'
 import { useMDXComponent } from 'next-contentlayer/hooks'
+import Image from 'next/image'
+import * as React from 'react'
 
-import { cn } from 'lib/utils'
 import { Callout } from '@/components/callout'
 import { MdxCard } from '@/components/mdx-card'
+import { cn } from 'lib/utils'
 
 const components = {
   h1: ({ className, ...props }) => (

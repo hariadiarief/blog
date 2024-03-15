@@ -1,7 +1,7 @@
 import { allPosts } from 'contentlayer/generated'
+import { compareDesc } from 'date-fns'
 import { formatDate } from 'lib/utils'
 import Link from 'next/link'
-import { compareDesc } from 'date-fns'
 
 export const metadata = {
   title: 'Blog  | hariadiarief.com'

@@ -2,8 +2,10 @@ import {
   AlertTriangle,
   ArrowRight,
   Check,
+  ChevronDown,
   ChevronLeft,
   ChevronRight,
+  ChevronUp,
   Command,
   CreditCard,
   File,
@@ -11,6 +13,7 @@ import {
   HelpCircle,
   Image,
   Laptop,
+  Linkedin,
   Loader2,
   LucideProps,
   Moon,
@@ -23,10 +26,7 @@ import {
   Twitter,
   User,
   X,
-  Linkedin,
-  type IconNode as LucideIcon,
-  ChevronDown,
-  ChevronUp
+  type IconNode as LucideIcon
 } from 'lucide-react'
 
 export type Icon = LucideIcon

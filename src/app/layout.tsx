@@ -1,17 +1,17 @@
 'use client'
 
+import { Popover, Transition } from '@headlessui/react'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
-import { Popover, Transition } from '@headlessui/react'
 
 import { ThemeProvider } from '@/components/theme-provider'
 import ThemeToggle from '@/components/theme-toggle'
 
-import '@/styles/globals.css'
 import { Icons } from '@/components/icons'
-import React, { Fragment } from 'react'
-import { usePathname } from 'next/navigation'
+import '@/styles/globals.css'
 import { cn } from 'lib/utils'
+import { usePathname } from 'next/navigation'
+import React, { Fragment } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
