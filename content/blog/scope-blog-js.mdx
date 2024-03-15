@@ -11,7 +11,7 @@ _Scope_, sesuai namanya yang berarti cakupan/jangkauan, dalam konteks eksekusi a
 
 _Scope_ juga dapat berlapis/_nested_, seperti :
 
-```js
+```javascript
 function induk() {
   console.log('induk')
   function anak() {
@@ -42,7 +42,7 @@ Dalam perkembangannya, saat tipe data let dan const diperkenalkan dalam es6 Java
 
 Variabel yang dideklarasikan secara Global (di luar fungsi apa pun) adalah **Global Scope. **Global variables dapat diakses dari manapun di dalam program JavaScript. Berikut Contoh kodenya :
 
-```js
+```javascript
 var kota = 'Jakarta'
 console.log(kota) // kota DAPAT diakses/dijangkau disini
 ;(function myFunction() {
@@ -70,7 +70,7 @@ Variable yang dideklarasikan dengan var tidak memiliki **Block Scope.** Oleh kar
 
 Hingga pada saat ES2015 dirisil, barulah javascrip mengimplementasikan **Block Scope** kedalam let, oleh karena itu variabel yang dideklarasikan didalam block {} tidak dapat di panggil atau diakses dari luar blok
 
-```js
+```javascript
 console.log(kota) // kota TIDAK DAPAT diakses/dijangkau disini
 
 if (true) {
@@ -85,7 +85,7 @@ console.log(kota) // kota TIDAK DAPAT diakses/dijangkau disini
 
 Mendeklarasikan ulang variabel menggunakan var pada non-strict mode dapat menimbulkan masalah. Seperti berikut :
 
-```js
+```javascript
 var x = 10
 console.log(x) // output: 10
 
