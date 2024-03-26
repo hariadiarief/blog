@@ -10,7 +10,7 @@ import Link from 'next/link'
 
 import { Icons } from '@/components/icons'
 import { buttonVariants } from '@/components/ui/button'
-import { absoluteUrl, cn, formatDate } from 'lib/utils'
+import { absoluteUrl, cn, formatDate } from '@/lib/utils'
 
 interface PostPageProps {
   params: {

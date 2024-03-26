@@ -4,7 +4,7 @@ import * as React from 'react'
 
 import { Callout } from '@/components/callout'
 import { MdxCard } from '@/components/mdx-card'
-import { cn } from 'lib/utils'
+import { cn } from '@/lib/utils'
 
 const components = {
   h1: ({ className, ...props }) => (

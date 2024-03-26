@@ -1,6 +1,6 @@
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
-import { formatDate } from 'lib/utils'
+import { formatDate } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
