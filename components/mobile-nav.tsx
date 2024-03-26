@@ -85,6 +85,7 @@ export function MobileNav() {
 }
 
 interface MobileLinkProps extends LinkProps {
+  // eslint-disable-next-line
   onOpenChange?: (open: boolean) => void
   children: React.ReactNode
   className?: string

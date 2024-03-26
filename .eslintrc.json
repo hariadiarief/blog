@@ -1,11 +1,10 @@
 {
   "extends": [
-    "next/core-web-vitals",
     "eslint:recommended", // eslint-plugin-react
     "plugin:react/recommended", // eslint-plugin-react
     "plugin:react-hooks/recommended", // eslint-plugin-react-hooks
-    "plugin:@next/eslint-plugin-next/recommended", // @next/eslint-plugin-next
-    "prettier" //eslint-config-prettier
+    "prettier", //eslint-config-prettier
+    "next"
   ],
   "plugins": [
     "react", // eslint-plugin-react
@@ -14,6 +13,17 @@
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true // eslint-plugin-react
+    }
+  },
+  "settings": {
+    "tailwindcss": {
+      "callees": [
+        "cn"
+      ],
+      "config": "tailwind.config.js"
+    },
+    "next": {
+      "rootDir": true
     }
   },
   "rules": {

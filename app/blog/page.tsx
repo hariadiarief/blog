@@ -1,6 +1,7 @@
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { formatDate } from 'lib/utils'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export const metadata = {
@@ -36,10 +37,10 @@ export default function Blog() {
                 href={post.slug}
                 className='bg-white dark:border-gray-700 dark:bg-gray-900'
               >
-                <img
+                <Image
                   className='w-full rounded-lg border border-gray-200 shadow dark:border-gray-700'
                   src={post.image}
-                  alt='post.image'
+                  alt='post image'
                 />
 
                 <article className='pt-2'>
