@@ -38,6 +38,8 @@ export default function Blog() {
                 className='bg-white dark:border-gray-700 dark:bg-gray-900'
               >
                 <Image
+                  width={300}
+                  height={100}
                   className='w-full rounded-lg border border-gray-200 shadow dark:border-gray-700'
                   src={post.image}
                   alt='post image'
