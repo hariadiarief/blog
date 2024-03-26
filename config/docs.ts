@@ -1,4 +1,4 @@
-import { MainNavItem, SidebarNavItem } from "types/nav"
+import { MainNavItem } from 'types/nav'
 
 interface DocsConfig {
   mainNav: MainNavItem[]
@@ -8,16 +8,16 @@ interface DocsConfig {
 export const docsConfig: DocsConfig = {
   mainNav: [
     {
-      title: "Home",
-      href: "/Home",
+      title: 'Home',
+      href: '/Home'
     },
     {
-      title: "Blog",
-      href: "/blog",
+      title: 'Blog',
+      href: '/blog'
     },
     {
-      title: "Contact Me",
-      href: "/contact",
-    },
-  ], 
+      title: 'Contact Me',
+      href: '/contact'
+    }
+  ]
 }
