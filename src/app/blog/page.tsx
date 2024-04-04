@@ -1,6 +1,7 @@
+import { Icons } from '@/components/icons'
+import { formatDate } from '@/lib/utils'
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
-import { formatDate } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -17,17 +18,15 @@ export default function Blog() {
 
   return (
     <div className='mt-16 flex justify-center'>
-      <div className='container max-w-4xl'>
-        <div className='flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8'>
-          <div className='flex-1 space-y-4'>
-            <h1 className='font-heading inline-block text-4xl tracking-tight lg:text-5xl'>
-              Blog
-            </h1>
-            <p className='text-xl text-muted-foreground'>
-              A blog built using Contentlayer. Posts are written in MDX.
-            </p>
-          </div>
-        </div>
+      <div className='container'>
+        <h5 className='mb-2 flex flex-col font-bold text-gray-900 dark:text-white md:items-center'>
+          <p className='text-left text-xl italic md:text-center md:text-2xl'>
+            &quot;Wisdom begins in wonder&quot;
+          </p>
+          <p className='text-left text-lg md:text-right md:text-xl'>
+            -Socrates-
+          </p>
+        </h5>
         <hr className='my-8' />
         {posts?.length ? (
           <div className='mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3'>
@@ -44,20 +43,22 @@ export default function Blog() {
                   src={post.image}
                   alt='post image'
                 />
+                <div className='px-1 '>
+                  <div className='mt-2 flex items-center text-xs text-muted-foreground'>
+                    <Icons.calendarDays size={12} className='mr-1' />
+                    <span>{formatDate(post.date)}</span>
+                  </div>
 
-                <article className='pt-2'>
-                  <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
-                    {post.title}
-                  </h5>
+                  <article className='pt-2'>
+                    <h5 className='mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white'>
+                      {post.title}
+                    </h5>
 
-                  <p className='mb-3  text-muted-foreground'>
-                    {post.description}
-                  </p>
-
-                  <p className='text-sm text-muted-foreground'>
-                    {formatDate(post.date)}
-                  </p>
-                </article>
+                    <p className='mb-3  text-muted-foreground'>
+                      {post.description}
+                    </p>
+                  </article>
+                </div>
               </Link>
             ))}
           </div>
