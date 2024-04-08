@@ -30,6 +30,7 @@ import {
   type IconNode as LucideIcon,
   Mail,
   Instagram,
+  MoveRight
 } from 'lucide-react'
 
 export type Icon = LucideIcon
@@ -62,6 +63,7 @@ export const Icons = {
   calendarDays: CalendarDays,
   mail: Mail,
   instagram: Instagram,
+  moveRight: MoveRight,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden='true'

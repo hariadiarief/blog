@@ -2,7 +2,7 @@ import { Icons } from '@/components/icons'
 
 export default function contact() {
   return (
-    <div className='container mt-16'>
+    <div className='container mt-16 max-w-screen-md mx-auto'>
       <h3 className='mb-8 text-2xl font-bold'>Contact Me</h3>
 
       <p className='mb-4'>
