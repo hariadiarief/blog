@@ -27,7 +27,9 @@ import {
   User,
   X,
   CalendarDays,
-  type IconNode as LucideIcon
+  type IconNode as LucideIcon,
+  Mail,
+  Instagram,
 } from 'lucide-react'
 
 export type Icon = LucideIcon
@@ -58,6 +60,8 @@ export const Icons = {
   laptop: Laptop,
   linkedin: Linkedin,
   calendarDays: CalendarDays,
+  mail: Mail,
+  instagram: Instagram,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden='true'
@@ -68,6 +72,8 @@ export const Icons = {
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 496 512'
       {...props}
+      height={20}
+      width={20}
     >
       <path
         fill='currentColor'
