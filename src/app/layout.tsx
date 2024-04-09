@@ -22,9 +22,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         className={`${inter.className} min-h-screen bg-white text-slate-900 antialiased dark:bg-gray-900 dark:text-slate-50`}
       >
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <div className='mx-auto '>
+          <div className='mx-auto flex min-h-screen flex-col'>
             <SiteHeader />
-            <main>{children}</main>
+            <main className='grow'>{children}</main>
             <SiteFooter />
           </div>
         </ThemeProvider>

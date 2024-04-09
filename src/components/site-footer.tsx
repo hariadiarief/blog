@@ -6,7 +6,7 @@ import { buttonVariants } from './ui/button'
 
 export default function siteFooter() {
   return (
-    <footer className='contain container flex flex h-14 max-w-screen-2xl flex-wrap items-center items-center justify-center gap-4 pt-20 sm:justify-between'>
+    <footer className='contain container h-14 md:max-w-screen-md lg:max-w-screen-lg mx-auto md:py-6 md:px-4 flex justify-between items-center flex-wrap items-center items-center justify-center gap-4 pt-20 sm:justify-between '>
       <p className='text-balance text-center text-sm leading-loose text-muted-foreground md:text-left'>
         © 2024 Masagus Hariadi Arief. All rights reserved.
       </p>
