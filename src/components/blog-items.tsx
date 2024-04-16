@@ -16,9 +16,13 @@ export const metadata = {
 
 interface BlogProps {
   limit?: number
+  showFilter?: boolean
 }
 
-export default function BlogItems({ limit = null }: BlogProps) {
+export default function BlogItems({
+  limit = null,
+  showFilter = true
+}: BlogProps) {
   const [whichMenuActive, setWhichMenuActive] = useState('ALL')
 
   const posts = allPosts
@@ -37,13 +41,15 @@ export default function BlogItems({ limit = null }: BlogProps) {
 
   return (
     <div className='flex'>
-      <SideMenu
-        className='mr-8'
-        title='Categories'
-        items={blogConfig.categories}
-        activeItem={whichMenuActive}
-        onClick={menu => setWhichMenuActive(menu)}
-      />
+      {showFilter && (
+        <SideMenu
+          className='mr-8'
+          title='Categories'
+          items={blogConfig.categories}
+          activeItem={whichMenuActive}
+          onClick={menu => setWhichMenuActive(menu)}
+        />
+      )} 
       {posts?.length ? (
         <div className='mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3'>
           {posts.map(post => (

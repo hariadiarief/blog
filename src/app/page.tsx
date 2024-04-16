@@ -29,7 +29,7 @@ export default function Home() {
 
       <div className='flex flex-col items-center'>
         <div className='mt-[100px] text-2xl font-bold'>Latest articles</div>
-        <BlogItems limit={3} />
+        <BlogItems limit={3} showFilter={false} />
         <Link
           href='/blog'
           className={cn('mt-8', buttonVariants({ variant: 'ghost' }))}
