@@ -1,15 +1,22 @@
 'use client'
 
 import { Icons } from '@/components/icons'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@/components/ui/select'
 import { blogConfig } from '@/config/blog'
-import { formatDate } from '@/lib/utils'
+import { cn, formatDate } from '@/lib/utils'
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
+import { Filter } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { SideMenu } from './side-menu'
-
 export const metadata = {
   title: 'Blog  | hariadiarief.com'
 }
@@ -40,18 +47,54 @@ export default function BlogItems({
     .slice(0, limit || undefined)
 
   return (
-    <div className='flex'>
+    <div className='flex flex-col md:flex-row'>
       {showFilter && (
-        <SideMenu
-          className='hidden md:block mr-8 max-w-[200px]'
-          title='Categories'
-          items={blogConfig.categories}
-          activeItem={whichMenuActive}
-          onClick={menu => setWhichMenuActive(menu)}
-        />
+        <>
+          <div
+            className='container sticky top-14 mb-2 flex w-full items-center
+          bg-accent
+           py-2 
+           md:hidden
+           '
+          >
+            <Select
+              onValueChange={menu => setWhichMenuActive(menu)}
+              defaultValue={
+                whichMenuActive === 'ALL' ? undefined : whichMenuActive
+              }
+            >
+              <SelectTrigger className='w-full'>
+                <SelectValue placeholder='Category' />
+              </SelectTrigger>
+              <SelectContent>
+                {blogConfig.categories.map((category, index) => (
+                  <SelectItem key={index} value={category.name}>
+                    {category.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Filter className='ml-2' />
+          </div>
+
+          <SideMenu
+            className='mr-8 hidden max-w-[200px] md:block'
+            title='Categories'
+            items={blogConfig.categories}
+            activeItem={whichMenuActive}
+            onClick={menu => setWhichMenuActive(menu)}
+          />
+        </>
       )}
       {posts?.length ? (
-        <div className='grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3'>
+        <div
+          className={cn(
+            'grid grid-cols-1 gap-10  md:grid-cols-2 lg:grid-cols-3',
+            {
+              'max-sm:container': showFilter
+            }
+          )}
+        >
           {posts.map(post => (
             <Link
               key={post._id}
