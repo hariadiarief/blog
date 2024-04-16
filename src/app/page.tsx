@@ -10,8 +10,8 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className='container mx-auto mt-16 max-w-screen-md'>
-      <div className='flex flex-col items-center gap-4 text-center '>
+    <div className='container mt-16 '>
+      <div className='mx-auto flex max-w-screen-md flex-col items-center gap-4  text-center '>
         <h1 className='font-heading text-3xl font-bold sm:text-5xl md:text-6xl lg:text-3xl'>
           Hey, I'm <b>Adi</b>, a software developer who thrives on crafting
           innovative solutions with web apps.
@@ -28,7 +28,7 @@ export default function Home() {
       </div>
 
       <div className='flex flex-col items-center'>
-        <div className='mt-[100px] text-2xl font-bold'>Latest articles</div>
+        <div className='mt-[100px] text-2xl font-bold mb-12'>Latest articles</div>
         <BlogItems limit={3} showFilter={false} />
         <Link
           href='/blog'

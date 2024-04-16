@@ -43,15 +43,15 @@ export default function BlogItems({
     <div className='flex'>
       {showFilter && (
         <SideMenu
-          className='mr-8'
+          className='hidden md:block mr-8 max-w-[200px]'
           title='Categories'
           items={blogConfig.categories}
           activeItem={whichMenuActive}
           onClick={menu => setWhichMenuActive(menu)}
         />
-      )} 
+      )}
       {posts?.length ? (
-        <div className='mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3'>
+        <div className='grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3'>
           {posts.map(post => (
             <Link
               key={post._id}

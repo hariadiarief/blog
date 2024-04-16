@@ -24,7 +24,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <div className='mx-auto flex min-h-screen flex-col'>
             <SiteHeader />
-            <main className='grow'>{children}</main>
+            <main className='grow flex flex-col'>{children}</main>
             <SiteFooter />
           </div>
         </ThemeProvider>
