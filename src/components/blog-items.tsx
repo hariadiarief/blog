@@ -2,12 +2,14 @@
 
 import { Icons } from '@/components/icons'
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select'
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList
+} from '@/components/ui/command'
+import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer'
 import { blogConfig } from '@/config/blog'
 import { cn, formatDate } from '@/lib/utils'
 import { allPosts } from 'contentlayer/generated'
@@ -17,6 +19,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { SideMenu } from './side-menu'
+import { Button } from './ui/button'
+
 export const metadata = {
   title: 'Blog  | hariadiarief.com'
 }
@@ -30,6 +34,8 @@ export default function BlogItems({
   limit = null,
   showFilter = true
 }: BlogProps) {
+  const [open, setOpen] = useState(false)
+
   const [whichMenuActive, setWhichMenuActive] = useState('ALL')
 
   const posts = allPosts
@@ -57,24 +63,45 @@ export default function BlogItems({
            md:hidden
            '
           >
-            <Select
-              onValueChange={menu => setWhichMenuActive(menu)}
-              defaultValue={
-                whichMenuActive === 'ALL' ? undefined : whichMenuActive
-              }
-            >
-              <SelectTrigger className='w-full'>
-                <SelectValue placeholder='Category' />
-              </SelectTrigger>
-              <SelectContent>
-                {blogConfig.categories.map((category, index) => (
-                  <SelectItem key={index} value={category.name}>
-                    {category.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            <Filter className='ml-2' />
+            <Drawer open={open} onOpenChange={setOpen}>
+              <DrawerTrigger asChild>
+                <Button variant='outline' className='w-full justify-start'>
+                  {!whichMenuActive || whichMenuActive === 'ALL' ? (
+                    <>
+                      <Filter className='mr-2' />
+                      <span>Category</span>
+                    </>
+                  ) : (
+                    <>{whichMenuActive}</>
+                  )}
+                </Button>
+              </DrawerTrigger>
+              <DrawerContent>
+                <div className='mt-4 border-t'>
+                  <Command>
+                    <CommandInput placeholder='Filter status...' />
+                    <CommandList>
+                      <CommandEmpty>No results found.</CommandEmpty>
+                      <CommandGroup>
+                        {blogConfig.categories.map(menu => (
+                          <CommandItem
+                            key={menu.name}
+                            value={menu.name}
+                            onSelect={value => {
+                              console.log({ value })
+                              setWhichMenuActive(menu.name)
+                              setOpen(false)
+                            }}
+                          >
+                            {menu.name}
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+                </div>
+              </DrawerContent>
+            </Drawer>
           </div>
 
           <SideMenu
