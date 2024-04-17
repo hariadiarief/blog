@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function Blog() {
   return (
-    <div className='mt-4 md:container md:mt-16  '>
+    <div className='mt-4 w-full md:container md:mt-16 '>
       <BlogItems />
     </div>
   )

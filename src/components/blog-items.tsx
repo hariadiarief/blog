@@ -128,7 +128,9 @@ export default function BlogItems({
           ))}
         </div>
       ) : (
-        <p>No posts published.</p>
+        <div className='container'>
+          <p>No posts published.</p>
+        </div>
       )}
     </div>
   )
